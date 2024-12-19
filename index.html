@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>721宿舍 - 我们的青春故事</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .slideshow-container {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .slide-content h1 {
+            font-size: 4rem;
+            font-family: "楷体", cursive;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .slide-content p {
+            font-size: 1.5rem;
+            font-family: "微软雅黑", sans-serif;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .roommates {
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            background-color: #fff;
+        }
+
+        .card {
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+            background-color: #fff;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .card p {
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #ffd7b5;
+        }
+
+        #quote {
+            font-style: italic;
+            margin-top: 1rem;
+            color: #666;
+        }
+
+        /* 响应式设计 */
+        @media screen and (max-width: 1024px) {
+            .roommates {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .slide-content h1 {
+                font-size: 3rem;
+            }
+
+            .slide-content p {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .slideshow-container {
+                height: 40vh;
+            }
+
+            .slide {
+                background-size: contain;
+                background-position: center;
+            }
+
+            .roommates {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .slide-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .slide-content p {
+                font-size: 0.9rem;
+            }
+
+            .card {
+                padding: 1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .avatar {
+                width: 120px;
+                height: 120px;
+            }
+
+            .card h3 {
+                font-size: 1.1rem;
+            }
+
+            .card p {
+                font-size: 0.9rem;
+            }
+
+            .footer {
+                padding: 1rem;
+            }
+
+            .footer h2 {
+                font-size: 1.1rem;
+            }
+
+            #quote {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media screen and (max-width: 320px) {
+            .slideshow-container {
+                height: 35vh;
+            }
+
+            .slide-content h1 {
+                font-size: 1.5rem;
+            }
+
+            .slide-content p {
+                font-size: 0.8rem;
+            }
+
+            .avatar {
+                width: 100px;
+                height: 100px;
+            }
+
+            .card h3 {
+                font-size: 1rem;
+            }
+
+            .card p {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body></body>
+    <div class="slideshow-container">
+        <div class="slide active">
+            <div class="slide-content">
+                <h1>721宿舍</h1>
+                <p>愿下辈子有上床下桌</p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="slide-content">
+                <h1>我们的日常</h1>
+                <p>记录每一个精彩瞬间</p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="slide-content">
+                <h1>青春印记</h1>
+                <p>留下最美好的回忆</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="roommates">
+        <div class="card">
+            <img src="/imgs/地沟老鼠.jpg" alt="地沟老鼠" class="avatar">
+            <h3>李雨涵</h3>
+            <p>爱好：当地沟老鼠</p>
+            <p>她最喜欢当老鼠，因为可以到处乱窜，还可以吃东西。</p>
+        </div>
+        <div class="card">
+            <img src="/imgs/铁T.jpg" alt="铁T" class="avatar">
+            <h3>马嘉祺</h3>
+            <p>爱好：当铁T</p>
+            <p>她最喜欢当铁T。</p>
+        </div>
+        <div class="card">
+            <img src="/imgs/吉翔.jpg" alt="吉祥" class="avatar">
+            <h3>吉祥</h3>
+            <p>爱好：唱女高音</p>
+            <p>随时随地开唱。</p>
+        </div>
+        <div class="card">
+            <img src="/imgs/京圈阔少.jpg" alt="张雨萌" class="avatar">
+            <h3>张雨萌</h3>
+            <p>爱好：当京圈阔少</p>
+            <p>即将去迪拜旅游的小姐姐。</p>
+        </div>
+        <div class="card">
+            <img src="/imgs/我.jpg" alt="我" class="avatar">
+            <h3>站那喊</h3>
+            <p>爱好：睡24xiao's</p>
+            <p>萌萌的小蝴蝶</p>
+        </div>
+        <div class="card">
+            <img src="/imgs/王大桶.jpg" alt="王大桶" class="avatar">
+            <h3>王欣桶</h3>
+            <p>爱好：当王大桶</p>
+            <p>萌萌的小蝴蝶</p>
+        </div>
+        <div class="card">
+            <img src="/imgs/猪猪侠.jpg" alt="猪猪侠" class="avatar">
+            <h3>主子涵</h3>
+            <p>爱好：当猪猪侠</p>
+            <p>当代GG博</p>
+        </div>
+        <div class="card">
+            <img src="/imgs/鱼酱.jpg" alt="鱼酱" class="avatar">
+            <h3>与之听</h3>
+            <p>爱好：玩溺水涵</p>
+            <p>宁水含你补要塌方啊</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <h2>721宿舍 —— 我们八个人的家</h2>
+        <p id="quote"></p>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const slideImages = [
+            '/imgs/微信图片_20241219202729.jpg',
+            '/imgs/66dc5d6b8416d1bc24c226f2495d2c6.jpg',
+            '/imgs/e10ead06ebc5f4251daab52954bf1c8.jpg'
+        ];
+
+        // 设置初始背景图片
+        slides.forEach((slide, index) => {
+            slide.style.backgroundImage = `url(${slideImages[index]})`;
+        });
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        // 每4秒切换一次图片
+        setInterval(nextSlide, 4000);
+
+        // 随机语录
+        const quotes = [        
+            "这是谁的内裤袜子?"
+        ];
+
+        function updateQuote() {
+            const quote = quotes[Math.floor(Math.random() * quotes.length)];
+            document.getElementById('quote').textContent = quote;
+        }
+
+        updateQuote();
+    </script>
+</body>
+</html>
